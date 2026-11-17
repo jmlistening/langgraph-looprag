@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "looprag"
+version = "0.1.0"
+description = "A self-correcting RAG agent loop: query rewriting, relevance grading, answer verification, bounded retries, and human-in-the-loop review with LangGraph 1.x."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [{ name = "HappyJM" }]
+keywords = ["rag", "langgraph", "agents", "retrieval", "bm25", "llm"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "langgraph>=1.0,<2",
+  "langchain-core>=1.0,<2",
+  "rank-bm25>=0.2.2,<1",
+  "rich>=13.0",
+]
+
+[project.optional-dependencies]
+openai = ["langchain-openai>=1.0,<2"]
+sqlite = ["langgraph-checkpoint-sqlite>=3.0,<4"]
+pdf = ["pypdf>=6.0"]
+dev = ["pytest>=8.0", "ruff>=0.17"]
+
+[project.scripts]
+looprag = "looprag.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/jmlistening/langgraph-looprag"
+Repository = "https://github.com/jmlistening/langgraph-looprag"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/looprag"]
+
+[tool.uv]
+package = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["B008"]
+
+[tool.ruff.format]
+quote-style = "double"
