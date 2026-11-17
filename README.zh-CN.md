@@ -1,5 +1,9 @@
 # LoopRAG
 
+<p align="center">
+  <img src="assets/banner.png" alt="LoopRAG — 会自我纠正、可人工审核的 RAG Agent / self-correcting RAG agent with human review" width="100%">
+</p>
+
 简体中文 · [English](README.md)
 
 [![CI](https://github.com/jmlistening/langgraph-looprag/actions/workflows/ci.yml/badge.svg)](https://github.com/jmlistening/langgraph-looprag/actions/workflows/ci.yml)
@@ -321,6 +325,7 @@ langgraph-looprag/
 ├── .env.example
 ├── .gitignore
 ├── .github/workflows/ci.yml
+├── assets/banner.png
 ├── LICENSE
 ├── README.md
 ├── README.zh-CN.md

@@ -1,5 +1,9 @@
 # LoopRAG
 
+<p align="center">
+  <img src="assets/banner.png" alt="LoopRAG — self-correcting RAG agent with bounded retries, checkpointing and human review / 会自我纠正、可人工审核的 RAG Agent" width="100%">
+</p>
+
 [简体中文](README.zh-CN.md) · English
 
 [![CI](https://github.com/jmlistening/langgraph-looprag/actions/workflows/ci.yml/badge.svg)](https://github.com/jmlistening/langgraph-looprag/actions/workflows/ci.yml)
@@ -356,6 +360,7 @@ langgraph-looprag/
 ├── .env.example
 ├── .gitignore
 ├── .github/workflows/ci.yml
+├── assets/banner.png
 ├── LICENSE
 ├── README.md
 ├── README.zh-CN.md
