@@ -89,11 +89,11 @@ prints a short notice. Actual output (terminal width 110, this machine):
 
 ```text
 notice: ingested sample corpus from examples/corpus into .looprag/corpus.json
-retrieve  4 chunks for query 'How is the station powered in winter, and what happens du...'
-grade     4/4 relevant (attempt 1)
-generate  answer drafted
-verify    grounded
-finalize  done
+retrieve   4 chunks for query 'How is the station powered in winter, and what happens du...'
+grade      4/4 relevant (attempt 1)
+generate   answer drafted
+verify     grounded
+finalize   done
 +------------------------------------------------- Answer --------------------------------------------------+
 | A dedicated emergency generator, EG-5, is a 5 kilowatt unit in the radio hut. [1] In a total power        |
 | emergency, the station manager radios the regional rescue service and all field travel is suspended until |
@@ -362,6 +362,7 @@ langgraph-looprag/
 ├── .github/workflows/ci.yml
 ├── assets/banner.png
 ├── assets/demo.gif
+├── assets/demo-review.gif
 ├── LICENSE
 ├── README.md
 ├── README.zh-CN.md
@@ -389,10 +390,24 @@ langgraph-looprag/
 
 ## Demo
 
-A real offline run: retrieve, grade, generate, verify, finalize, then a cited answer with its sources and scores.
+Two real offline runs.
+
+### Bounded self-correction
+
+An out-of-corpus question triggers a query rewrite. After the attempt budget is exhausted, LoopRAG stops with an explicit "not enough evidence" instead of fabricating.
 
 <p align="center">
-  <img src="assets/demo.gif" alt="Terminal recording of a real offline run: retrieve, grade, generate, verify and finalize, then show a cited answer with its sources and scores." width="100%">
+  <img src="assets/demo.gif" alt="Terminal recording: retrieve, grade, rewrite, retrieve and grade again, then stop with not enough evidence instead of fabricating." width="100%">
+</p>
+
+<p align="center"><sub>Recorded from a real offline run — no API key.</sub></p>
+
+### Human review
+
+`--review` pauses the graph with a draft and numbered sources; approving resumes the checkpoint and prints the final answer.
+
+<p align="center">
+  <img src="assets/demo-review.gif" alt="Terminal recording: a review checkpoint shows a draft and four numbered sources, the reviewer types y, and the final cited answer is printed." width="100%">
 </p>
 
 <p align="center"><sub>Recorded from a real offline run — no API key.</sub></p>

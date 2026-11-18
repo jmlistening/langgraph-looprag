@@ -81,11 +81,11 @@ uv run looprag ask "How is the station powered in winter, and what happens durin
 
 ```text
 notice: ingested sample corpus from examples/corpus into .looprag/corpus.json
-retrieve  4 chunks for query 'How is the station powered in winter, and what happens du...'
-grade     4/4 relevant (attempt 1)
-generate  answer drafted
-verify    grounded
-finalize  done
+retrieve   4 chunks for query 'How is the station powered in winter, and what happens du...'
+grade      4/4 relevant (attempt 1)
+generate   answer drafted
+verify     grounded
+finalize   done
 +------------------------------------------------- Answer --------------------------------------------------+
 | A dedicated emergency generator, EG-5, is a 5 kilowatt unit in the radio hut. [1] In a total power        |
 | emergency, the station manager radios the regional rescue service and all field travel is suspended until |
@@ -327,6 +327,7 @@ langgraph-looprag/
 ├── .github/workflows/ci.yml
 ├── assets/banner.png
 ├── assets/demo.gif
+├── assets/demo-review.gif
 ├── LICENSE
 ├── README.md
 ├── README.zh-CN.md
@@ -354,10 +355,24 @@ langgraph-looprag/
 
 ## 演示
 
-一次真实离线运行：检索、评分、生成、校验、定稿，最后输出带引用的答案与来源评分。
+两段真实离线运行。
+
+### 有界自我纠正
+
+一个语料外问题会触发查询改写。尝试次数用尽后，LoopRAG 明确返回“证据不足”，而不是编造答案。
 
 <p align="center">
-  <img src="assets/demo.gif" alt="终端实录：检索、评分、生成、校验、定稿依次执行，输出带引用的答案与来源评分。" width="100%">
+  <img src="assets/demo.gif" alt="终端实录：检索、评分、改写、再次检索评分，最终明确提示证据不足，而不是编造答案。" width="100%">
+</p>
+
+<p align="center"><sub>真实离线运行录制，无需 API Key。</sub></p>
+
+### 人工审核
+
+`--review` 会带着草稿和编号来源暂停图；审核者输入 y 后，检查点恢复并打印最终答案。
+
+<p align="center">
+  <img src="assets/demo-review.gif" alt="终端实录：审核检查点展示草稿与四个编号来源，输入 y 后打印最终的带引用答案。" width="100%">
 </p>
 
 <p align="center"><sub>真实离线运行录制，无需 API Key。</sub></p>
