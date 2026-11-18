@@ -4,7 +4,7 @@
   <img src="assets/banner.png" alt="LoopRAG — self-correcting RAG agent with bounded retries, checkpointing and human review / 会自我纠正、可人工审核的 RAG Agent" width="100%">
 </p>
 
-[简体中文](README.zh-CN.md) · English
+[简体中文](README.zh-CN.md) · [English](README.md)
 
 [![CI](https://github.com/jmlistening/langgraph-looprag/actions/workflows/ci.yml/badge.svg)](https://github.com/jmlistening/langgraph-looprag/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
