@@ -23,12 +23,12 @@ def print_update(console: Console, update: dict) -> None:
         if isinstance(payload, dict):
             events = payload.get("trace") or []
         if not events:
-            console.print(Text.assemble((f"{node:<10}", "cyan")))
+            console.print(Text.assemble((f"{node:<10} ", "cyan")))
             continue
         for event in events:
             console.print(
                 Text.assemble(
-                    (f"{event.get('node', node):<10}", "cyan"),
+                    (f"{event.get('node', node):<10} ", "cyan"),
                     str(event.get("message", "")),
                 )
             )
