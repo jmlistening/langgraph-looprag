@@ -21,12 +21,6 @@ relevant, rewrites the query when they are not, verifies the answer against the
 sources, and only then finalizes. Every cycle is bounded, every node is visible,
 and the whole thing runs offline with no API key.
 
-<p align="center">
-  <img src="assets/demo.gif" alt="Terminal recording of a real offline run: retrieve, grade, generate, verify and finalize, then show a cited answer with its sources and scores." width="100%">
-</p>
-
-<p align="center"><sub>Recorded from a real offline run — no API key.</sub></p>
-
 - **A real self-correcting loop.** Retrieve, grade, generate, verify; failures
   route back through query rewriting instead of silently returning a bad answer.
 - **Bounded retries and explicit verification.** Attempts are capped, citations
@@ -392,6 +386,16 @@ langgraph-looprag/
     ├── test_human_review.py
     └── test_privacy.py
 ```
+
+## Demo
+
+A real offline run: retrieve, grade, generate, verify, finalize, then a cited answer with its sources and scores.
+
+<p align="center">
+  <img src="assets/demo.gif" alt="Terminal recording of a real offline run: retrieve, grade, generate, verify and finalize, then show a cited answer with its sources and scores." width="100%">
+</p>
+
+<p align="center"><sub>Recorded from a real offline run — no API key.</sub></p>
 
 ## License
 
